@@ -1,0 +1,21 @@
+{
+    "name": "agrilife/college",
+    "description": "Functionality for AgriLife College sites",
+    "license": "GPL2+",
+    "authors": [
+        {
+            "name": "Travis Ward",
+            "email": "travis@travisward.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+    },
+	"require-dev": {
+	},
+    "autoload": {
+        "psr-4": {
+            "AgriLife\\College\\": "src"
+        }
+    }
+}

@@ -1,0 +1,4 @@
+// Deployment settings
+{
+	"servers" : [ "coals" ]
+}

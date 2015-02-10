@@ -1,0 +1,247 @@
+[
+    {
+        "key": "group_54663d2620028",
+        "title": "Landing Page 1",
+        "fields": [
+            {
+                "key": "field_54663d3000135",
+                "label": "Carousel Slider",
+                "name": "show_slider",
+                "prefix": "",
+                "type": "checkbox",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Show a carousel slider": "Show a carousel slider"
+                },
+                "default_value": [
+
+                ],
+                "layout": "vertical"
+            },
+            {
+                "key": "field_54663e3800136",
+                "label": "Select Carousel Slider",
+                "name": "select_slider",
+                "prefix": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_54663d3000135",
+                            "operator": "==",
+                            "value": "Show a carousel slider"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "soliloquy"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_54663edf00137",
+                "label": "Page Title",
+                "name": "page_title",
+                "prefix": "",
+                "type": "text",
+                "instructions": "Optional- display the title of this landing page",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_54663f2600138",
+                "label": "Welcome Text",
+                "name": "welcome_text",
+                "prefix": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1
+            },
+            {
+                "key": "field_54663f6900139",
+                "label": "Program Header",
+                "name": "program_header",
+                "prefix": "",
+                "type": "text",
+                "instructions": "Optional: display a title for the featured program areas",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "Programs",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_54663fb60013a",
+                "label": "Program Units",
+                "name": "program_units",
+                "prefix": "",
+                "type": "repeater",
+                "instructions": "Feature your some of your unit's programs\/pages\/initiatives in a three column grid.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "min": "",
+                "max": "",
+                "layout": "row",
+                "button_label": "Add Program",
+                "sub_fields": [
+                    {
+                        "key": "field_54663ffd0013b",
+                        "label": "Program Name",
+                        "name": "program_name",
+                        "prefix": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_5466401a0013c",
+                        "label": "Program Image",
+                        "name": "program_image",
+                        "prefix": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "thumbnail",
+                        "library": "all"
+                    },
+                    {
+                        "key": "field_5466406a0013d",
+                        "label": "Program Page",
+                        "name": "program_page",
+                        "prefix": "",
+                        "type": "page_link",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": "",
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "multiple": 0
+                    },
+                    {
+                        "key": "field_546640ae0013e",
+                        "label": "Program Description",
+                        "name": "program_description",
+                        "prefix": "",
+                        "type": "wysiwyg",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "tabs": "all",
+                        "toolbar": "basic",
+                        "media_upload": 0
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "\/srv\/www\/wordpress-default\/wp-content\/plugins\/agrilife-college\/view\/landing1.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content",
+            "excerpt",
+            "custom_fields",
+            "format",
+            "featured_image",
+            "categories",
+            "tags",
+            "send-trackbacks"
+        ]
+    }
+]
