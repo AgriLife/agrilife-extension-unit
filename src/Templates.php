@@ -1,6 +1,6 @@
 <?php
 
-namespace AgriLife\College;
+namespace AgriLife\Extension;
 
 class Templates {
 

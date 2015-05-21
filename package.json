@@ -1,12 +1,12 @@
 {
-  "name": "agrilife-college",
+  "name": "agrilife-extension",
   "version": "1.0.0",
-  "description": "Functionality for AgriLife College sites",
-  "main": "agrilife-college.php",
+  "description": "Functionality for AgriLife Extension sites",
+  "main": "agrilife-extension.php",
   "scripts": {
     "test": "phpunit"
   },
-  "repository": "https://github.com/agrilife/agrilife-college",
+  "repository": "https://github.com/agrilife/agrilife-extension",
   "author": "Travis Ward",
   "license": "GPL2+",
   "devDependencies": {

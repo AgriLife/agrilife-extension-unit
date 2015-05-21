@@ -1,6 +1,6 @@
 <?php
 
-namespace AgriLife\College;
+namespace AgriLife\Extension;
 
 class Asset {
 
@@ -11,10 +11,10 @@ class Asset {
         $this->add_image_sizes();
 
         // Register global styles used in the theme
-        add_action( 'wp_enqueue_scripts', array( $this, 'register_college_styles' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'register_extension_styles' ) );
 
         // Enqueue extension styles
-        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_college_styles' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_extension_styles' ) );
 
         // Dequeue global styles
         add_action( 'wp_print_styles', array( $this, 'dequeue_global_styles'), 5 );
@@ -57,11 +57,11 @@ class Asset {
      * @since 1.0
      * @return void
      */
-    public function register_college_styles() {
+    public function register_extension_styles() {
 
         wp_register_style(
-            'college-styles',
-            AF_THEME_DIRURL . '/css/college.css',
+            'extension-styles',
+            AF_THEME_DIRURL . '/css/ext.css',
             array(),
             '',
             'screen'
@@ -75,9 +75,9 @@ class Asset {
      * @global $wp_styles
      * @return void
      */
-    public function enqueue_college_styles() {
+    public function enqueue_extension_styles() {
 
-        wp_enqueue_style( 'college-styles' );
+        wp_enqueue_style( 'extension-styles' );
 
     }
 

@@ -1,5 +1,5 @@
 <?php
-namespace AgriLife\College;
+namespace AgriLife\Extension;
 
 class RequiredDOM {
 
@@ -81,7 +81,7 @@ class RequiredDOM {
      */
     public function ext_body_class( $classes ) {
 
-        $classes[] = 'college-site';
+        $classes[] = 'extension-site';
         return $classes;
 
     }

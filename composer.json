@@ -1,6 +1,6 @@
 {
-    "name": "agrilife/college",
-    "description": "Functionality for AgriLife College sites",
+    "name": "agrilife/extension",
+    "description": "Functionality for AgriLife Extension sites",
     "license": "GPL2+",
     "authors": [
         {
@@ -15,7 +15,7 @@
 	},
     "autoload": {
         "psr-4": {
-            "AgriLife\\College\\": "src"
+            "AgriLife\\Extension\\": "src"
         }
     }
 }

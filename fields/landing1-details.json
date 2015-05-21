@@ -224,7 +224,7 @@
                 {
                     "param": "page_template",
                     "operator": "==",
-                    "value": "\/srv\/www\/wordpress-default\/wp-content\/plugins\/agrilife-college\/view\/landing1.php"
+                    "value": "\/srv\/www\/wordpress-default\/wp-content\/plugins\/agrilife-extension\/view\/landing1.php"
                 }
             ]
         ],
