@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name: AgriLife Extension
- * Plugin URI: https://github.com/AgriLife/AgriLife-Extension
+ * Plugin Name: AgriLife Extension Unit
+ * Plugin URI: https://github.com/AgriLife/AgriLife-Extension-Unit
  * Description: Functionality for AgriLife Extension sites using AgriFlex 3
  * Version: 1.0
- * Author: Travis Ward
- * Author URI: http://travisward.com
- * Author Email: travis@travisward.com
+ * Author: Zach Watkins
+ * Author URI: http://github.com/ZachWatkins
+ * Author Email: zachary.watkins@ag.tamu.edu
  * License: GPL2+
  */
 
