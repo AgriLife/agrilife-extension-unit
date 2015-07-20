@@ -12,11 +12,11 @@
 
 require 'vendor/autoload.php';
 
-define( 'AG_COL_DIRNAME', 'agrilife-extension' );
-define( 'AG_COL_DIR_PATH', plugin_dir_path( __FILE__ ) );
-define( 'AG_COL_DIR_FILE', __FILE__ );
-define( 'AG_COL_DIR_URL', plugin_dir_url( __FILE__ ) );
-define( 'AG_COL_TEMPLATE_PATH', AG_COL_DIR_PATH . 'view' );
+define( 'AG_EXTUNIT_DIRNAME', 'agrilife-extension-unit' );
+define( 'AG_EXTUNIT_DIR_PATH', plugin_dir_path( __FILE__ ) );
+define( 'AG_EXTUNIT_DIR_FILE', __FILE__ );
+define( 'AG_EXTUNIT_DIR_URL', plugin_dir_url( __FILE__ ) );
+define( 'AG_EXTUNIT_TEMPLATE_PATH', AG_EXTUNIT_DIR_PATH . 'view' );
 
 // Register plugin activation functions
 //$activate = new \AgriLife\Core\Activate;
@@ -32,9 +32,11 @@ $extension_asset = new \AgriLife\Extension\Asset();
 
 $extension_templates = new \AgriLife\Extension\Templates();
 
+$extension_widget_areas = new \AgriLife\Extension\WidgetAreas();
+
 add_action( 'agrilife_core_init', function() {
     $ext_landing_1_template = new \AgriLife\Core\PageTemplate();
-    $ext_landing_1_template->with_path( AG_COL_TEMPLATE_PATH )->with_file( 'landing1' )->with_name( 'Landing Page 1' );
+    $ext_landing_1_template->with_path( AG_EXTUNIT_TEMPLATE_PATH )->with_file( 'landing1' )->with_name( 'Landing Page 1' );
     $ext_landing_1_template->register();
 });
 
@@ -54,5 +56,5 @@ function extension_acf_json_load_point( $paths ) {
 */
 
 if ( class_exists( 'Acf' ) ) {
-    require_once(AG_COL_DIR_PATH . 'fields/landing1-details.php') ;
+    require_once(AG_EXTUNIT_DIR_PATH . 'fields/landing1-details.php') ;
 }

@@ -6,38 +6,16 @@ class Asset {
 
 	public function __construct() {
 
-		//add_action( 'wp_enqueue_scripts', array( $this, 'register_js' ) );
-
         $this->add_image_sizes();
 
         // Register global styles used in the theme
-        add_action( 'wp_enqueue_scripts', array( $this, 'register_extension_styles' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'register_extunit_styles' ) );
 
         // Enqueue extension styles
-        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_extension_styles' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_extunit_styles' ) );
 
         // Dequeue global styles
         add_action( 'wp_print_styles', array( $this, 'dequeue_global_styles'), 5 );
-
-	}
-
-	public function register_js() {
-
-		wp_register_script(
-			'jquery-cookie',
-			AG_EXT_DIR_URL . 'bower_modules/jquery-cookie/jquery.cookie.js',
-			array( 'jquery' ),
-			false,
-			true
-		);
-
-		wp_register_script(
-			'county-office-locator',
-			AG_EXT_DIR_URL . '/js/county-office-locator.js',
-			array( 'jquery', 'jquery-cookie' ),
-			false,
-			true
-		);
 
 	}
 
@@ -49,6 +27,10 @@ class Asset {
 
         add_image_size( 'content-full-width', 760, 570, true );
         add_image_size( 'programs-feature', 248, 186, true );
+        add_image_size( 'program-solution_single', 560, 315, true );
+        add_image_size( 'post-thumbnail', 75, 75, true );
+        add_image_size( 'home-hero', 750, 347, true );
+        add_image_size( 'home-featured', 350, 197, true);
 
     }
 
@@ -57,11 +39,11 @@ class Asset {
      * @since 1.0
      * @return void
      */
-    public function register_extension_styles() {
+    public function register_extunit_styles() {
 
         wp_register_style(
             'extension-styles',
-            AF_THEME_DIRURL . '/css/ext.css',
+            AF_THEME_DIRURL . '/css/ext-unit.css',
             array(),
             '',
             'screen'
@@ -75,7 +57,7 @@ class Asset {
      * @global $wp_styles
      * @return void
      */
-    public function enqueue_extension_styles() {
+    public function enqueue_extunit_styles() {
 
         wp_enqueue_style( 'extension-styles' );
 
