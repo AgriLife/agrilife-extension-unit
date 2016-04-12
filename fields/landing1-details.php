@@ -232,7 +232,7 @@ if( function_exists('register_field_group') ):
                 array (
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => AG_COL_TEMPLATE_PATH . '/landing1.php',
+                    'value' => AG_EXTUNIT_TEMPLATE_PATH . '/landing1.php',
                 ),
             ),
         ),
