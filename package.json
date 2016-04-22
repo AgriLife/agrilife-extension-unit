@@ -3,19 +3,8 @@
   "version": "1.0.0",
   "description": "Functionality for AgriLife Extension sites",
   "main": "agrilife-extension-unit.php",
-  "scripts": {
-    "test": "phpunit"
-  },
+  "scripts": {},
   "repository": "https://github.com/agrilife/agrilife-extension-unit",
   "author": "Travis Ward",
   "license": "GPL2+",
-  "devDependencies": {
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-compass": "~0.6.0",
-    "grunt-contrib-coffee": "~0.10.0",
-    "grunt-contrib-csslint": "~0.2.0",
-    "grunt-contrib-jshint": "~0.7.2",
-    "grunt": "~0.4.2",
-    "grunt-contrib-watch": "~0.5.3"
-  }
 }
