@@ -3,9 +3,9 @@ Functionality for AgriLife Extension sites
 
 ## WordPress Requirements:
 1. AgriFlex 3 theme
-2. AgriLife Core plugin
-3. Advanced Custom Fields 5 plugin
-4. Soliloquy Slider plugin (for Page Template)
+2. Activate Plugin: Advanced Custom Fields 5
+3. Activate Plugin: AgriLife Core plugin
+4. Activate Plugin: Soliloquy Slider plugin (for Page Templates)
 
 ## Installation
 1. Copy this repository to your desktop
