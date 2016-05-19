@@ -20,7 +20,13 @@ Functionality for AgriLife Extension sites
 
 * Required appearance and information for Extension Units
 * Page Template
-** Landing Page 1: This page template provides a Soliloquy slider, a welcome text field, and a way to list the programs provided by your unit. It is typically used on the front page.
+    * Landing Page 1: This page template provides a Soliloquy slider, a welcome text field, and a way to list the programs provided by your unit. It is typically used on the front page.
 * Widget Areas
-** Footer Center: This is the footer widget area. It appears above the required links. This widget area works best with the Simple Social widget.
-** Home Sidebar: This is the Home sidebar widget area. It appears in the right column of the home page. This widget area works best with menus and Genesis Featured Posts.
+    * Footer Center: This is the footer widget area. It appears above the required links. This widget area works best with the Simple Social widget.
+    * Home Sidebar: This is the Home sidebar widget area. It appears in the right column of the home page. This widget area works best with menus and Genesis Featured Posts.
+* Page Layouts:
+
+![Content Sidebar](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/cs.gif)
+![Sidebar Content](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/sc.gif)
+![Sidebar Content Sidebar](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/scs.gif)
+![Content](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/c.gif)
