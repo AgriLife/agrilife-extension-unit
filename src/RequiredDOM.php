@@ -55,7 +55,7 @@ class RequiredDOM {
      *
      * @return void
      */
-    public function filter_tagline( $title, $inside, $wrap ) {
+    public function filter_tagline( $title, $inside = "", $wrap = "") {
 
         $title = str_replace('">', '"><span class="site-unit-name">' . esc_attr( get_bloginfo('name') ) . '</span><span class="site-unit-title">', $title);
         $title = str_replace('</h2>', '</span></h2>', $title);
