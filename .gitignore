@@ -42,3 +42,5 @@ cache
 # Ignore dependencies using package control
 node_modules/*
 bower_components/*
+
+agrilife-extension-unit.zip
