@@ -1,6 +1,6 @@
 {
   "name": "agrilife-extension-unit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Functionality for AgriLife Extension sites",
   "main": "agrilife-extension-unit.php",
   "scripts": {},
@@ -15,7 +15,6 @@
     "grunt-contrib-compress": "~1.3.0",
     "curlrequest": "~0.3.10",
     "underscore": "~1.8.3",
-    "grunt-gh-release": "0.0.2",
-    "grunt-gitinfo": "~0.1.8"
+    "grunt-gh-release": "0.0.2"
   }
 }
