@@ -70,6 +70,14 @@ class RequiredDOM {
             $wrap
         );
 
+        if(empty(get_bloginfo('description'))){
+            $title .= sprintf( '<%s class="site-description" itemprop="description"><span class="site-unit-name">%s</span></%s>',
+                'h2',
+                get_bloginfo('name'),
+                'h2'
+            );
+        }
+
         return $title;
 	}
 
