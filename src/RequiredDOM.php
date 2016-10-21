@@ -35,10 +35,34 @@ class RequiredDOM {
 	 * @return string
 	 */
 	public function seo_title( $title, $inside, $wrap ) {
+
+        $exttype = get_field( 'ext_type', 'option' );
+        $agency = get_field( 'agency_top', 'option' );
+        $secondlogo = '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>';
+
         $inside = sprintf( '<a href="%s" title="%s"><span>%s</span></a>',
             esc_attr( get_bloginfo('url') ),
             esc_attr( get_bloginfo('name') ),
             get_bloginfo( 'name' ) );
+
+        if($agency == 'research'){
+            $inside .= sprintf( $secondlogo, 'http://agriliferesearch.tamu.edu/', 'research', 'Research', 'Research' );
+        }
+        if($exttype == 'sg' || in_array('sg', $exttype)){
+            $inside .= sprintf( $secondlogo, 'http://texasseagrant.org/', 'seagrant', 'Sea Grant', 'Sea Grant' );
+        }
+        if($exttype == '4h' || in_array('4h', $exttype)){
+            $inside .= sprintf( $secondlogo, 'http://texas4-h.tamu.edu/', 'fourh', '4-H', '4-H' );
+        }
+        if($exttype == 'mg' || in_array('mg', $exttype)){
+            $inside .= sprintf( $secondlogo, 'http://txmg.org/', 'txmg', 'Master Gardener Chapter', 'Master Gardener Chapter' );
+        }
+        if($exttype == 'mn' || in_array('mn', $exttype)){
+            $inside .= sprintf( $secondlogo, 'http://txmn.org/', 'txmn', 'Master Naturalist Chapter', 'Master Naturalist Chapter' );
+        }
+        if($exttype == 'tce' || in_array('tce', $exttype)){
+            $inside .= sprintf( $secondlogo, 'http://www.pvamu.edu/cahs/cooperative-extension-program-cep/', 'tce', 'County TCE Office', 'County TCE Office' );
+        }
 
         $title = sprintf( '<%s class="site-title" itemprop="headline">%s</%s>',
             $wrap,
