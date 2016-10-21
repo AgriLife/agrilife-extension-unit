@@ -45,7 +45,7 @@ class RequiredDOM {
             esc_attr( get_bloginfo('name') ),
             get_bloginfo( 'name' ) );
 
-        if($agency == 'research'){
+        if($agency == 'research' || in_array('research', $agency)){
             $inside .= sprintf( $secondlogo, 'http://agriliferesearch.tamu.edu/', 'research', 'Research', 'Research' );
         }
         if($exttype == 'sg' || in_array('sg', $exttype)){
