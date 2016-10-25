@@ -119,16 +119,16 @@ class RequiredDOM {
      */
     public function filter_tagline( $title, $inside='', $wrap='' ) {
 
-        // $wrap may empty for some reason
+        // $wrap may be null for some reason
         if(empty($wrap)){
             preg_match( '/\w+/', $title, $results );
             $wrap = $results ? $results[0] : 'h2';
         }
 
-        // $inside may be empty for some reason
+        // $inside may be null for some reason
         if(empty($inside)){
             $results = preg_split('/<\/?'.$wrap.'[^>]*>/', $title);
-            $inside = sizeof($results) > 1 ? $results[1] : esc_attr( get_bloginfo('description'));
+            $inside = sizeof($results) > 1 ? $results[1] : esc_attr( get_bloginfo('description') );
         }
 
         // Place wildcards where needed
@@ -138,7 +138,6 @@ class RequiredDOM {
         }
 
         // Add the site title before the description
-        $wrap = 'div';
         $title = sprintf( $title,
             $wrap,
             '<span class="site-unit-name">' . esc_attr( get_bloginfo('name') ) . '</span><span class="site-unit-title">' . $inside . '</span>',
