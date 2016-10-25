@@ -7,6 +7,7 @@ class RequiredDOM {
 
 		// Alter header title
 		add_filter( 'genesis_seo_title', array( $this, 'seo_title' ), 10, 3 );
+
         add_filter( 'genesis_seo_title', array( $this, 'logo_title' ), 9, 3 );
 
         // Remove Site Description
@@ -107,7 +108,6 @@ class RequiredDOM {
 
 	}
 
-
     /**
      * Reformats the tagline
      *
@@ -117,7 +117,7 @@ class RequiredDOM {
      *
      * @return string
      */
-    public function filter_tagline( $title, $inside, $wrap ) {
+    public function filter_tagline( $title, $inside='', $wrap='' ) {
 
         // $wrap may empty for some reason
         if(empty($wrap)){
