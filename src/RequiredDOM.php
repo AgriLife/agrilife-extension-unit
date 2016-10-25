@@ -7,6 +7,7 @@ class RequiredDOM {
 
 		// Alter header title
 		add_filter( 'genesis_seo_title', array( $this, 'seo_title' ), 10, 3 );
+        add_filter( 'genesis_seo_title', array( $this, 'logo_title' ), 9, 3 );
 
         // Remove Site Description
         remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
@@ -25,6 +26,59 @@ class RequiredDOM {
 
 	}
 
+    /**
+     * Adds logos to the header title
+     *
+     * @param $title The title text
+     * @param $inside
+     * @param $wrap
+     *
+     * @return string
+     */
+    public function logo_title( $title, $inside, $wrap ) {
+
+        // Replace h1 with div for SEO
+        $wrap = 'div';
+
+        // Add extension logo
+        $logos = sprintf( '<a href="%s" title="%s"><span>%s</span></a>',
+            esc_attr( get_bloginfo('url') ),
+            esc_attr( get_bloginfo('name') ),
+            get_bloginfo( 'name' ) );
+
+        // Add secondary logos
+        $exttype = get_field( 'ext_type', 'option' );
+        $agency = get_field( 'agency_top', 'option' );
+        $secondlogo = '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>';
+        if($agency == 'research' || in_array('research', $agency)){
+            $logos .= sprintf( $secondlogo, 'http://agriliferesearch.tamu.edu/', 'research', 'Research', 'Research' );
+        }
+        if($exttype == 'sg' || in_array('sg', $exttype)){
+            $logos .= sprintf( $secondlogo, 'http://texasseagrant.org/', 'seagrant', 'Sea Grant', 'Sea Grant' );
+        }
+        if($exttype == '4h' || in_array('4h', $exttype)){
+            $logos .= sprintf( $secondlogo, 'http://texas4-h.tamu.edu/', 'fourh', '4-H', '4-H' );
+        }
+        if($exttype == 'mg' || in_array('mg', $exttype)){
+            $logos .= sprintf( $secondlogo, 'http://txmg.org/', 'txmg', 'Master Gardener Chapter', 'Master Gardener Chapter' );
+        }
+        if($exttype == 'mn' || in_array('mn', $exttype)){
+            $logos .= sprintf( $secondlogo, 'http://txmn.org/', 'txmn', 'Master Naturalist Chapter', 'Master Naturalist Chapter' );
+        }
+        if($exttype == 'tce' || in_array('tce', $exttype)){
+            $logos .= sprintf( $secondlogo, 'http://www.pvamu.edu/cahs/cooperative-extension-program-cep/', 'tce', 'County TCE Office', 'County TCE Office' );
+        }
+
+        // Combine logos
+        $title = sprintf( '<%s class="site-title" itemprop="headline">%s</%s>',
+            $wrap,
+            $logos,
+            $wrap
+        );
+
+        return $title;
+    }
+
 	/**
 	 * Modifies the header title
 	 *
@@ -36,61 +90,60 @@ class RequiredDOM {
 	 */
 	public function seo_title( $title, $inside, $wrap ) {
 
-        $exttype = get_field( 'ext_type', 'option' );
-        $agency = get_field( 'agency_top', 'option' );
-        $secondlogo = '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>';
-
-        $inside = sprintf( '<a href="%s" title="%s"><span>%s</span></a>',
-            esc_attr( get_bloginfo('url') ),
-            esc_attr( get_bloginfo('name') ),
-            get_bloginfo( 'name' ) );
-
-        if($agency == 'research' || in_array('research', $agency)){
-            $inside .= sprintf( $secondlogo, 'http://agriliferesearch.tamu.edu/', 'research', 'Research', 'Research' );
-        }
-        if($exttype == 'sg' || in_array('sg', $exttype)){
-            $inside .= sprintf( $secondlogo, 'http://texasseagrant.org/', 'seagrant', 'Sea Grant', 'Sea Grant' );
-        }
-        if($exttype == '4h' || in_array('4h', $exttype)){
-            $inside .= sprintf( $secondlogo, 'http://texas4-h.tamu.edu/', 'fourh', '4-H', '4-H' );
-        }
-        if($exttype == 'mg' || in_array('mg', $exttype)){
-            $inside .= sprintf( $secondlogo, 'http://txmg.org/', 'txmg', 'Master Gardener Chapter', 'Master Gardener Chapter' );
-        }
-        if($exttype == 'mn' || in_array('mn', $exttype)){
-            $inside .= sprintf( $secondlogo, 'http://txmn.org/', 'txmn', 'Master Naturalist Chapter', 'Master Naturalist Chapter' );
-        }
-        if($exttype == 'tce' || in_array('tce', $exttype)){
-            $inside .= sprintf( $secondlogo, 'http://www.pvamu.edu/cahs/cooperative-extension-program-cep/', 'tce', 'County TCE Office', 'County TCE Office' );
-        }
-
-        $title = sprintf( '<%s class="site-title" itemprop="headline">%s</%s>',
-            $wrap,
-            $inside,
-            $wrap
-        );
-
+        // Provide site title if description not used
         if(empty(get_bloginfo('description'))){
+
+            // Replace h1 with div for SEO
+            $wrap = 'div';
+
             $title .= sprintf( '<%s class="site-description" itemprop="description"><span class="site-unit-name">%s</span></%s>',
-                'h2',
+                $wrap,
                 get_bloginfo('name'),
-                'h2'
+                $wrap
             );
         }
 
         return $title;
+
 	}
 
 
     /**
      * Reformats the tagline
      *
-     * @return void
+     * @param $title The title text
+     * @param $inside
+     * @param $wrap
+     *
+     * @return string
      */
-    public function filter_tagline( $title, $inside = "", $wrap = "") {
+    public function filter_tagline( $title, $inside, $wrap ) {
 
-        $title = str_replace('">', '"><span class="site-unit-name">' . esc_attr( get_bloginfo('name') ) . '</span><span class="site-unit-title">', $title);
-        $title = str_replace('</h2>', '</span></h2>', $title);
+        // $wrap may empty for some reason
+        if(empty($wrap)){
+            preg_match( '/\w+/', $title, $results );
+            $wrap = $results ? $results[0] : 'h2';
+        }
+
+        // $inside may be empty for some reason
+        if(empty($inside)){
+            $results = preg_split('/<\/?'.$wrap.'[^>]*>/', $title);
+            $inside = sizeof($results) > 1 ? $results[1] : esc_attr( get_bloginfo('description'));
+        }
+
+        // Place wildcards where needed
+        $title = preg_replace( '/\b'.$wrap.'\b/', '%s', $title );
+        if(!empty($inside)){
+            $title = str_replace( $inside, '%s', $title );
+        }
+
+        // Add the site title before the description
+        $wrap = 'div';
+        $title = sprintf( $title,
+            $wrap,
+            '<span class="site-unit-name">' . esc_attr( get_bloginfo('name') ) . '</span><span class="site-unit-title">' . $inside . '</span>',
+            $wrap
+        );
 
         return $title;
 
