@@ -47,18 +47,12 @@ class RequiredDOM {
             esc_attr( get_bloginfo('name') ),
             get_bloginfo( 'name' ) );
 
-        // Add secondary logos
+        // Add other logos
         $exttype = get_field( 'ext_type', 'option' );
         $agency = get_field( 'agency_top', 'option' );
         $secondlogo = '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>';
         if($agency == 'research' || in_array('research', $agency)){
             $logos = sprintf( $secondlogo, 'http://agriliferesearch.tamu.edu/', 'research-extension', 'Research and Extension', 'Research and Extension' );
-        }
-        if($exttype == 'sg' || in_array('sg', $exttype)){
-            $logos .= sprintf( $secondlogo, 'http://texasseagrant.org/', 'seagrant', 'Sea Grant', 'Sea Grant' );
-        }
-        if($exttype == 'mg' || in_array('mg', $exttype)){
-            $logos .= sprintf( $secondlogo, 'http://txmg.org/', 'txmg', 'Master Gardener Chapter', 'Master Gardener Chapter' );
         }
         if($exttype == 'mn' || in_array('mn', $exttype)){
             $logos .= sprintf( $secondlogo, 'http://txmn.org/', 'txmn', 'Master Naturalist Chapter', 'Master Naturalist Chapter' );
@@ -74,11 +68,24 @@ class RequiredDOM {
             $wrap
         );
 
+        // Add secondary logo container
+        $logos = '<%s class="site-secondary-logo%s">%s</%s>';
+        $classes = '';
+        $inside = '';
         if($exttype == '4h' || in_array('4h', $exttype)){
-            $title .= sprintf(
-                '<div class="site-secondary-logo">' . $secondlogo . '</div>',
-                'http://texas4-h.tamu.edu/', 'fourh', '4-H', '4-H'
-            );
+            $inside .= sprintf( $secondlogo, 'http://texas4-h.tamu.edu/', 'fourh', '4-H', '4-H' );
+            $classes .= ' fourh';
+        }
+        if($exttype == 'sg' || in_array('sg', $exttype)){
+            $inside .= sprintf( $secondlogo, 'http://texasseagrant.org/', 'seagrant', 'Sea Grant', 'Sea Grant' );
+            $classes .= ' seagrant';
+        }
+        if($exttype == 'mg' || in_array('mg', $exttype)){
+            $inside .= sprintf( $secondlogo, 'http://txmg.org/', 'txmg', 'Master Gardener Chapter', 'Master Gardener Chapter' );
+            $classes .= ' txmg';
+        }
+        if(!empty($inside)){
+            $title .= sprintf( $logos, $wrap, $classes, $inside, $wrap );
         }
 
         return $title;
