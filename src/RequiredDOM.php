@@ -50,15 +50,11 @@ class RequiredDOM {
         // Add other logos
         $exttype = get_field( 'ext_type', 'option' );
         $agency = get_field( 'agency_top', 'option' );
-        $secondlogo = '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>';
         if($agency == 'research' || in_array('research', $agency)){
-            $logos = sprintf( $secondlogo, 'http://agriliferesearch.tamu.edu/', 'research-extension', 'Research and Extension', 'Research and Extension' );
-        }
-        if($exttype == 'mn' || in_array('mn', $exttype)){
-            $logos .= sprintf( $secondlogo, 'http://txmn.org/', 'txmn', 'Master Naturalist Chapter', 'Master Naturalist Chapter' );
+            $logos = sprintf( '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>', 'http://agriliferesearch.tamu.edu/', 'research-extension', 'Research and Extension', 'Research and Extension' );
         }
         if($exttype == 'tce' || in_array('tce', $exttype)){
-            $logos .= sprintf( $secondlogo, 'http://www.pvamu.edu/cahs/cooperative-extension-program-cep/', 'tce', 'County TCE Office', 'County TCE Office' );
+            $logos .= sprintf( '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>', 'http://www.pvamu.edu/cahs/cooperative-extension-program-cep/', 'tce', 'County TCE Office', 'County TCE Office' );
         }
 
         // Combine logos
@@ -70,19 +66,25 @@ class RequiredDOM {
 
         // Add secondary logo container
         $logos = '<%s class="site-secondary-logo%s">%s</%s>';
+        $logo = '<a href="%s" class="%s-logo" title="%s"><img src="' . 
+                get_stylesheet_directory_uri() . '/img/%s" alt="%s"></a>';
         $classes = '';
         $inside = '';
         if($exttype == '4h' || in_array('4h', $exttype)){
-            $inside .= sprintf( $secondlogo, 'http://texas4-h.tamu.edu/', 'fourh', '4-H', '4-H' );
+            $inside .= sprintf( $logo, 'http://texas4-h.tamu.edu/', 'fourh', '4-H', 'logo-4h.png', '4-H' );
             $classes .= ' fourh';
         }
         if($exttype == 'sg' || in_array('sg', $exttype)){
-            $inside .= sprintf( $secondlogo, 'http://texasseagrant.org/', 'seagrant', 'Sea Grant', 'Sea Grant' );
+            $inside .= sprintf( $logo, 'http://texasseagrant.org/', 'seagrant', 'Sea Grant', 'logo-seagrant.png', 'Sea Grant' );
             $classes .= ' seagrant';
         }
         if($exttype == 'mg' || in_array('mg', $exttype)){
-            $inside .= sprintf( $secondlogo, 'http://txmg.org/', 'txmg', 'Master Gardener Chapter', 'Master Gardener Chapter' );
+            $inside .= sprintf( $logo, 'http://txmg.org/', 'txmg', 'Master Gardener Chapter', 'logo-txmg.png', 'Master Gardener Chapter' );
             $classes .= ' txmg';
+        }
+        if($exttype == 'mn' || in_array('mn', $exttype)){
+            $inside .= sprintf( $logo, 'http://txmn.org/', 'txmn', 'Master Naturalist Chapter', 'logo-txmn.png', 'Master Naturalist Chapter' );
+            $classes .= ' txmn';
         }
         if(!empty($inside)){
             $title .= sprintf( $logos, $wrap, $classes, $inside, $wrap );
