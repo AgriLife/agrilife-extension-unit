@@ -11,10 +11,9 @@
     "grunt": "~0.4.5"
   },
   "devDependencies": {
-    "grunt-contrib-coffee": "~1.0.0",
-    "grunt-contrib-compress": "~1.3.0",
     "curlrequest": "~0.3.10",
-    "underscore": "~1.8.3",
-    "grunt-gh-release": "0.0.2"
+    "grunt-contrib-compress": "~1.3.0",
+    "grunt-gh-release": "0.0.2",
+    "underscore": "~1.8.3"
   }
 }

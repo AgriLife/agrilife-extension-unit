@@ -1,20 +1,22 @@
+![Master branch](https://codeship.com/projects/da0906d0-0f20-0134-9705-3a660a5bed18/status?branch=master) on Master branch
+
+![Staging branch](https://codeship.com/projects/da0906d0-0f20-0134-9705-3a660a5bed18/status?branch=staging) on Staging branch
+
 # AgriLife Extension Unit (WordPress Plugin)
 
 Functionality for AgriLife Extension sites
 
 ## WordPress Requirements
 
-1. AgriFlex 3 theme
-2. AgriLife Core plugin
-3. Advanced Custom Fields 5 plugin (for Landing Page 1 Template)
+1. [AgriFlex3 theme](https://github.com/agrilife/agriflex3)
+2. [AgriLife Core plugin](https://github.com/agrilife/agrilife-core)
+3. Advanced Custom Fields 5+ plugin (for Landing Page 1 Template)
 4. Soliloquy Slider plugin (for Landing Page 1 Template)
 
 ## Installation
 
-1. Copy this repository to your desktop
-2. Do one of the following:
-    a. Compress this repository and upload it to your WordPress site as a new plugin
-    b. Use FTP/SFTP to upload your copy to the *plugins* folder of your WordPress directory
+1. [Download the latest release](https://github.com/AgriLife/agrilife-extension-unit/releases/latest)
+2. Upload the plugin to your site
 
 ## Features
 
@@ -30,3 +32,18 @@ Functionality for AgriLife Extension sites
 ![Sidebar Content](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/sc.gif)
 ![Sidebar Content Sidebar](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/scs.gif)
 ![Content](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/c.gif)
+
+## Development Installation
+
+1. Copy this repo to the desired location.
+2. In your terminal, navigate to the plugin location 'cd /path/to/the/plugin'
+3. Run 'composer install' to set up the php modules
+
+## Development Notes
+
+1. Release tasks can only be used by the repository's owners
+
+## Development Requirements
+
+* Node: http://nodejs.org/
+* NPM: https://npmjs.org/

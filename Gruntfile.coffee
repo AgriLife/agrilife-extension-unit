@@ -1,25 +1,6 @@
 module.exports = (grunt) ->
   @initConfig
     pkg: @file.readJSON('package.json')
-    coffee:
-      compileAdmin:
-        options:
-          bare: true
-          sourceMap: true
-        expand: true
-        cwd: 'js/src/admin/coffee'
-        src: ['*.coffee']
-        dest: 'js/src/admin/'
-        ext: '.js'
-      compilePublic:
-        options:
-          bare: true
-          sourceMap: true
-        expand: true
-        cwd: 'js/src/public/coffee'
-        src: ['*.coffee']
-        dest: 'js/src/public/'
-        ext: '.js'
     compress:
       main:
         options:
@@ -50,7 +31,6 @@ module.exports = (grunt) ->
           file: '<%= pkg.name %>.zip'
           'Content-Type': 'application/zip'
 
-  @loadNpmTasks 'grunt-contrib-coffee'
   @loadNpmTasks 'grunt-contrib-compress'
   @loadNpmTasks 'grunt-gh-release'
   @loadNpmTasks 'grunt-gitinfo'
