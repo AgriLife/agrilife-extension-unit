@@ -66,7 +66,7 @@ class RequiredDOM {
 
         // Add secondary logo container
         $logos = '<%s class="site-secondary-logo%s">%s</%s>';
-        $logo = '<a href="%s" class="%s-logo" title="%s"><img src="' . 
+        $logo = '<a href="%s" class="%s-logo" title="%s"><img src="' .
                 get_stylesheet_directory_uri() . '/img/%s" alt="%s"></a>';
         $classes = '';
         $inside = '';
@@ -281,7 +281,7 @@ class RequiredDOM {
                     <li><a href="http://agrilife.org/required-links/compact/">Compact with Texans</a></li>
                     <li><a href="http://agrilife.org/required-links/privacy/">Privacy and Security</a></li>
                     <li><a href="http://itaccessibility.tamu.edu/" target="_blank">Accessibility Policy</a></li>
-                    <li><a href="http://www2.dir.state.tx.us/pubs/Pages/weblink-privacy.aspx" target="_blank">State Link Policy</a></li>
+                    <li><a href="http://publishingext.dir.texas.gov/portal/internal/resources/DocumentLibrary/State%20Website%20Linking%20and%20Privacy%20Policy.pdf" target="_blank">State Link Policy</a></li>
                     <li><a href="http://www.tsl.state.tx.us/trail" target="_blank">Statewide Search</a></li>
                     <li><a href="http://www.tamus.edu/veterans/" target="_blank">Veterans Benefits</a></li>
                     <li><a href="http://fcs.tamu.edu/families/military_families/" target="_blank">Military Families</a></li>
