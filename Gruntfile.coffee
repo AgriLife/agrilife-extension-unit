@@ -23,7 +23,7 @@ module.exports = (grunt) ->
         tag_name: '<%= pkg.version %>'
         target_commitish: 'master'
         name: 'Release'
-        body: 'First release'
+        body: 'Release'
         draft: false
         prerelease: false
         asset:
@@ -42,24 +42,24 @@ module.exports = (grunt) ->
       cmd: 'git'
       args: [ 'tag' ]
     }, (err, result, code) ->
-      if(result.stdout!='')
-        matches = result.stdout.match(/([^\n]+)$/)
-        releaserange = matches[1] + '..HEAD'
-        grunt.config.set 'releaserange', releaserange
-        grunt.task.run('shortlog');
+      if result.stdout isnt ''
+        matches = result.stdout.match /([^\n]+)$/
+        grunt.config.set 'lasttag', matches[1]
+        grunt.task.run 'shortlog'
       done(err)
       return
     return
   @registerTask 'shortlog', 'Set gh_release body with commit messages since last release', ->
     done = @async()
+    releaserange = grunt.template.process '<%= lasttag %>..HEAD'
     grunt.util.spawn {
       cmd: 'git'
-      args: ['shortlog', grunt.config.get('releaserange'), '--no-merges']
+      args: ['shortlog', releaserange, '--no-merges']
     }, (err, result, code) ->
-      if(result.stdout != '')
-        grunt.config 'gh_release.release.body', result.stdout.replace(/(\n)\s\s+/g, '$1- ')
-      else
-        grunt.config 'gh_release.release.body', 'release'
+      if result.stdout isnt ''
+        message = result.stdout.replace /(\n)\s\s+/g, '$1- '
+        message = message.replace /\s*\[skip ci\]/g, ''
+        grunt.config 'gh_release.release.body', message
       done(err)
       return
     return
