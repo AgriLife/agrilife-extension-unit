@@ -1,5 +1,4 @@
 node_modules
-vendor/composer/autoload_static.php
 composer.json
 package.json
 Gruntfile.coffee
