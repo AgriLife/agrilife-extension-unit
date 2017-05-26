@@ -25,7 +25,7 @@ class CustomFields {
         // This function interferes with saving field groups
         // so prevent from running if on the ACF edit field group screen
         $screen = get_current_screen();
-        if($screen->post_type == 'acf-field-group')
+        if($screen && $screen->post_type == 'acf-field-group')
             return $field;
 
         // Only change if on page edit screen
