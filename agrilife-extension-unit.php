@@ -30,6 +30,8 @@ $extension_required_dom = new \AgriLife\Extension\RequiredDOM();
 
 $extension_asset = new \AgriLife\Extension\Asset();
 
+$extension_custom_fields = new \AgriLife\Extension\CustomFields();
+
 $extension_templates = new \AgriLife\Extension\Templates();
 
 $extension_widget_areas = new \AgriLife\Extension\WidgetAreas();
@@ -54,7 +56,3 @@ function extension_acf_json_load_point( $paths ) {
     return $paths;
 }
 */
-
-if ( class_exists( 'Acf' ) ) {
-    require_once(AG_EXTUNIT_DIR_PATH . 'fields/landing1-details.php') ;
-}
