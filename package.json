@@ -1,6 +1,6 @@
 {
   "name": "agrilife-extension-unit",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Functionality for AgriLife Extension sites",
   "main": "agrilife-extension-unit.php",
   "scripts": {},
