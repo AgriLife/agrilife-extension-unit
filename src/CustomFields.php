@@ -22,10 +22,12 @@ class CustomFields {
      */
     public function aer_acf_load_extras($field) {
 
-        // This function interferes with saving field groups
-        // so prevent from running if on the ACF edit field group screen
-        if(function_exists('get_current_screen') && get_current_screen()->post_type == 'acf-field-group')
-            return $field;
+        // Prevent this filter from running while editing exportable ACF field group data
+        if(function_exists('get_current_screen')){
+            $screen = get_current_screen();
+            if(!is_null($screen) && $screen->post_type == 'acf-field-group')
+                return $field;
+        }
 
         // Only change if on page edit screen
         $buttoncolors = array (
