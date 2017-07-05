@@ -9,7 +9,7 @@ module.exports = (grunt) ->
           {src: ['fields/**']},
           {src: ['img/**']},
           {src: ['src/**']},
-          {src: ['vendor/**', '!vendor/composer/autoload_static.php']},
+          {src: ['vendor/**']},
           {src: ['view/**']},
           {src: ['agrilife-extension-unit.php']},
           {src: ['README.md']}
