@@ -105,7 +105,15 @@ module.exports = (grunt) ->
 
       for key,value of obj
         if value != ''
-          grunt.log.writeln(key + ': ' + value)
+          if Array.isArray(value)
+            value = value.join(' ')
+            grunt.log.writeln(key + ': ' + value)
+          else if typeof value == 'object'
+            grunt.log.writeln(key + ':')
+            for key2,value2 of value
+              grunt.log.writeln('>> Line ' + key2 + ': ' + value2)
+          else
+            grunt.log.writeln(key + ': ' + value)
 
       grunt.log.writeln '------------------'
       i++
