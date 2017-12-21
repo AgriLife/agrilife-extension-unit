@@ -5,4 +5,4 @@ wp-config.php
 /wp-content/*.*
 /wp-content/themes
 /wp-content/plugins/*
-!/wp-content/plugins/AgriLife-Core
+!/wp-content/plugins/agrilife-extension-unit
