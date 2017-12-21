@@ -1,6 +1,8 @@
 node_modules
 composer.json
 package.json
+known-issues.json
+vipscan.json
 Gruntfile.coffee
 README.md
 agrilife-extension-unit.zip
