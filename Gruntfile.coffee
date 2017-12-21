@@ -107,9 +107,10 @@ module.exports = (grunt) ->
         if value != ''
           grunt.log.writeln(key + ': ' + value)
 
-      grunt.log.writeln('JSON format: ' + JSON.stringify(obj))
       grunt.log.writeln '------------------'
       i++
+
+    grunt.log.writeln('All issues in JSON: ' + JSON.stringify(new_issues))
 
     return
 
