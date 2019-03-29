@@ -10,12 +10,8 @@
   "author": "Travis Ward",
   "license": "GPL2+",
   "dependencies": {
-    "grunt": "~0.4.5"
+    "grunt": "~0.4.5",
+    "grunt-contrib-compress": "^1.4.3"
   },
-  "devDependencies": {
-    "curlrequest": "~0.3.10",
-    "grunt-contrib-compress": "~1.3.0",
-    "grunt-gh-release": "0.0.2",
-    "underscore": "~1.8.3"
-  }
+  "devDependencies": {}
 }
