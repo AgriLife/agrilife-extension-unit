@@ -287,7 +287,7 @@ class RequiredDOM {
                     <li><a href="https://fch.tamu.edu/programs/military-programs/" target="_blank">Military Families</a></li>
                     <li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681" target="_blank">Risk, Fraud &amp; Misconduct Hotline</a></li>
                     <li><a href="https://gov.texas.gov/organization/hsgd" target="_blank">Texas Homeland Security</a></li>
-                    <li><a href="http://veterans.portal.texas.gov/">Texas Veteran&apos;s Portal</a></li>
+                    <li><a href="http://veterans.portal.texas.gov/">Texas Veterans Portal</a></li>
                     <li><a href="http://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/" target="_blank">Equal Opportunity</a></li>
                     <li class="last"><a href="http://agrilife.org/required-links/orpi/">Open Records/Public Information</a></li>
                 </ul>
