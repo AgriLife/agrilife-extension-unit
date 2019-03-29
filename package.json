@@ -1,9 +1,11 @@
 {
   "name": "agrilife-extension-unit",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Functionality for AgriLife Extension sites",
   "main": "agrilife-extension-unit.php",
-  "scripts": {},
+  "scripts": {
+    "start": "composer install && npm install"
+  },
   "repository": "https://github.com/agrilife/agrilife-extension-unit",
   "author": "Travis Ward",
   "license": "GPL2+",

@@ -3,7 +3,7 @@
  * Plugin Name: AgriLife Extension Unit
  * Plugin URI: https://github.com/AgriLife/AgriLife-Extension-Unit
  * Description: Functionality for AgriLife Extension sites using AgriFlex 3
- * Version: 1.0
+ * Version: 1.1.8
  * Author: Zach Watkins
  * Author URI: http://github.com/ZachWatkins
  * Author Email: zachary.watkins@ag.tamu.edu

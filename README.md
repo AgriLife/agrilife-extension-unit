@@ -37,7 +37,7 @@ Functionality for AgriLife Extension sites
 
 1. Copy this repo to the desired location.
 2. In your terminal, navigate to the plugin location 'cd /path/to/the/plugin'
-3. Run 'composer install' to set up the php modules
+3. Run "npm start" to install dependencies.
 
 ## Development Notes
 
