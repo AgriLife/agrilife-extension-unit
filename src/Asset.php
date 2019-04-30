@@ -45,7 +45,7 @@ class Asset {
             'extension-styles',
             AF_THEME_DIRURL . '/css/ext-unit.css',
             array(),
-            '',
+            filemtime( AF_THEME_DIRPATH . '/css/ext-unit.css' ),
             'screen'
         );
 
