@@ -48,8 +48,8 @@ class RequiredDOM {
             get_bloginfo( 'name' ) );
 
         // Add other logos
-        $exttype = get_field( 'ext_type', 'option' );
-        $agency = get_field( 'agency_top', 'option' );
+        $agency  = AGDATA_AGENCY ? AGDATA_AGENCY : get_field( 'agency_top', 'option' );
+        $exttype = AGDATA_EXTTYPE ? AGDATA_EXTTYPE : get_field( 'ext_type', 'option' );
         if($agency == 'research' || (is_array($agency) && in_array('research', $agency))){
             $logos = sprintf( '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>', 'http://agriliferesearch.tamu.edu/', 'research-extension', 'Research and Extension', 'Research and Extension' );
         }
