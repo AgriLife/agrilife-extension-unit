@@ -6,8 +6,10 @@
  * Time: 2:21 PM
  */
 
+ // Path: fields/landing1-details.php
 if( function_exists('register_field_group') ):
 
+    // Register Landing Page 1 Details
     register_field_group(array (
         'key' => 'group_54663d2620028',
         'title' => 'Landing Page 1',

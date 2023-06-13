@@ -51,7 +51,7 @@ class RequiredDOM {
         $agency  = AGDATA_AGENCY ? AGDATA_AGENCY : get_field( 'agency_top', 'option' );
         $exttype = AGDATA_EXTTYPE ? AGDATA_EXTTYPE : get_field( 'ext_type', 'option' );
         if($agency == 'research' || (is_array($agency) && in_array('research', $agency))){
-            $logos = sprintf( '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>', 'http://agriliferesearch.tamu.edu/', 'research-extension', 'Research and Extension', 'Research and Extension' );
+            $logos = sprintf( '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>', 'https://agriliferesearch.tamu.edu/', 'research-extension', 'Research and Extension', 'Research and Extension' );
         }
         if($exttype == 'mg' || (is_array($exttype) && in_array('mg', $exttype))){
             $logos = sprintf( '<a href="%s" class="mg-logo"  title="%s"><span>%s</span></a>',
@@ -60,7 +60,7 @@ class RequiredDOM {
             get_bloginfo( 'name' ) );
         }
         if($exttype == 'tce' || (is_array($exttype) && in_array('tce', $exttype))){
-            $logos .= sprintf( '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>', 'http://www.pvamu.edu/cahs/cooperative-extension-program-cep/', 'tce', 'County TCE Office', 'County TCE Office' );
+            $logos .= sprintf( '<a href="%s" class="%s-logo" title="%s"><span>%s</span></a>', 'https://www.pvamu.edu/cahs/cooperative-extension-program-cep/', 'tce', 'County TCE Office', 'County TCE Office' );
         }
 
         // Combine logos
@@ -77,15 +77,15 @@ class RequiredDOM {
         $classes = '';
         $inside = '';
         if($exttype == '4h' || (is_array($exttype) && in_array('4h', $exttype))){
-            $inside .= sprintf( $logo, 'http://texas4-h.tamu.edu/', 'fourh', '4-H', 'logo-4h.png', '4-H' );
+            $inside .= sprintf( $logo, 'https://texas4-h.tamu.edu/', 'fourh', '4-H', 'logo-4h.png', '4-H' );
             $classes .= ' fourh';
         }
         if($exttype == 'sg' || (is_array($exttype) && in_array('sg', $exttype))){
-            $inside .= sprintf( $logo, 'http://texasseagrant.org/', 'seagrant', 'Sea Grant', 'logo-seagrant.png', 'Sea Grant' );
+            $inside .= sprintf( $logo, 'https://texasseagrant.org/', 'seagrant', 'Sea Grant', 'logo-seagrant.png', 'Sea Grant' );
             $classes .= ' seagrant';
         }
         if($exttype == 'mn' || (is_array($exttype) && in_array('mn', $exttype))){
-            $inside .= sprintf( $logo, 'http://txmn.org/', 'txmn', 'Master Naturalist Chapter', 'logo-txmn.png', 'Master Naturalist Chapter' );
+            $inside .= sprintf( $logo, 'https://txmn.org/', 'txmn', 'Master Naturalist Chapter', 'logo-txmn.png', 'Master Naturalist Chapter' );
             $classes .= ' txmn';
         }
         if(!empty($inside)){
@@ -226,7 +226,7 @@ class RequiredDOM {
 
         $output = '
             <div class="footer-container-ext">
-                <a href="http://agrilifeextension.tamu.edu/" title="Texas A&M AgriLife Extension Service"><img class="footer-ext-logo" src="'.AG_EXTUNIT_DIR_URL.'/img/logo-ext.png" title="Texas A&M AgriLife Extension Service" alt="Texas A&M AgriLife Extension Service" /><noscript><img src="'.AF_THEME_DIRURL.'/img/footer-tamus-maroon.png" title="Texas A&M University System Member" alt="Texas A&M University System Member" /></noscript></a>
+                <a href="https://agrilifeextension.tamu.edu/" title="Texas A&M AgriLife Extension Service"><img class="footer-ext-logo" src="'.AG_EXTUNIT_DIR_URL.'/img/logo-ext.png" title="Texas A&M AgriLife Extension Service" alt="Texas A&M AgriLife Extension Service" /><noscript><img src="'.AF_THEME_DIRURL.'/img/footer-tamus-maroon.png" title="Texas A&M University System Member" alt="Texas A&M University System Member" /></noscript></a>
             </div>';
 
         echo $output;
@@ -240,63 +240,60 @@ class RequiredDOM {
 	 */
 	public function render_footer_widgets() {
 
+        // If the 'footer-center' sidebar has active widgets display them
         if ( is_active_sidebar( 'footer-center' ) ) : ?>
-            <div id="footer-center-widgets" class="footer-center widget-area" role="complementary">
-                <?php dynamic_sidebar( 'footer-center' ); ?>
-            </div><!-- #footer-center-widgets -->
+        <div id="footer-center-widgets" class="footer-center widget-area" role="complementary">
+            <?php dynamic_sidebar( 'footer-center' ); ?>
+         </div><!-- #footer-center-widgets -->
         <?php endif;
-
 	}
 
+   /**
+ * Render TAMUS logo
+ * @since 1.0
+ * @return string
+ */
+public static function render_tamus_logo()
+{
+    $output = '
+        <div class="footer-container-tamus">
+            <a href="https://tamus.edu/" title="Texas A&amp;M University System">
+                <img class="footer-tamus" src="'.AG_EXTUNIT_DIR_URL.'/img/logo-tamus.png" title="Texas A&amp;M University System Member" alt="Texas A&amp;M University System Member" />
+                <noscript>
+                    <img src="'.AF_THEME_DIRURL.'/img/footer-tamus-maroon.png" title="Texas A&amp;M University System Member" alt="Texas A&amp;M University System Member" />
+                </noscript>
+            </a>
+        </div>';
+
+    return $output;
+}
 
     /**
-     * Render TAMUS logo
-     * @todo refactor this, repeated functionality
-     * @since 1.0
-     * @return string
-     */
-    public static function render_tamus_logo()
-    {
+ * Render required links
+ * @since 1.0
+ * @return string
+ */
+public static function render_required_links()
+{
+    $output = '
+        <div class="footer-container-required">
+            <ul class="req-links">
+                <li><a href="https://agrilife.org/required-links/compact/">Compact with Texans</a></li>
+                <li><a href="https://agrilife.org/required-links/privacy/">Privacy and Security</a></li>
+                <li><a href="https://itaccessibility.tamu.edu/" target="_blank">Accessibility Policy</a></li>
+                <li><a href="httpss://dir.texas.gov/resource-library-item/state-website-linking-privacy-policy" target="_blank">State Link Policy</a></li>
+                <li><a href="httpss://www.tsl.texas.gov/trail/index.html" target="_blank">Statewide Search</a></li>
+                <li><a href="httpss://aggie.tamu.edu/financial-aid/veterans" target="_blank">Veterans Benefits</a></li>
+                <li><a href="httpss://fch.tamu.edu/programs/military-programs/" target="_blank">Military Families</a></li>
+                <li><a href="httpss://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681" target="_blank">Risk, Fraud &amp; Misconduct Hotline</a></li>
+                <li><a href="httpss://gov.texas.gov/organization/hsgd" target="_blank">Texas Homeland Security</a></li>
+                <li><a href="https://veterans.portal.texas.gov/">Texas Veterans Portal</a></li>
+                <li><a href="https://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/" target="_blank">Equal Opportunity</a></li>
+                <li class="last"><a href="https://agrilife.org/required-links/orpi/">Open Records/Public Information</a></li>
+            </ul>
+        </div>';
 
-        $output = '
-            <div class="footer-container-tamus">
-                <a href="http://tamus.edu/" title="Texas A&amp;M University System"><img class="footer-tamus" src="'.AG_EXTUNIT_DIR_URL.'/img/logo-tamus.png" title="Texas A&amp;M University System Member" alt="Texas A&amp;M University System Member" />
-                <noscript><img src="'.AF_THEME_DIRURL.'/img/footer-tamus-maroon.png" title="Texas A&amp;M University System Member" alt="Texas A&amp;M University System Member" /></noscript></a>
-            </div>';
-
-        echo $output;
-
-    }
-
-    /**
-     * Render required links
-     * @todo refactor this, repeated functionality
-     * @since 1.0
-     * @return string
-     */
-    public static function render_required_links()
-    {
-
-        $output = '
-            <div class="footer-container-required">
-                <ul class="req-links">
-                    <li><a href="http://agrilife.org/required-links/compact/">Compact with Texans</a></li>
-                    <li><a href="http://agrilife.org/required-links/privacy/">Privacy and Security</a></li>
-                    <li><a href="http://itaccessibility.tamu.edu/" target="_blank">Accessibility Policy</a></li>
-                    <li><a href="https://dir.texas.gov/resource-library-item/state-website-linking-privacy-policy" target="_blank">State Link Policy</a></li>
-                    <li><a href="https://www.tsl.texas.gov/trail/index.html" target="_blank">Statewide Search</a></li>
-                    <li><a href="https://aggie.tamu.edu/financial-aid/veterans" target="_blank">Veterans Benefits</a></li>
-                    <li><a href="https://fch.tamu.edu/programs/military-programs/" target="_blank">Military Families</a></li>
-                    <li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681" target="_blank">Risk, Fraud &amp; Misconduct Hotline</a></li>
-                    <li><a href="https://gov.texas.gov/organization/hsgd" target="_blank">Texas Homeland Security</a></li>
-                    <li><a href="http://veterans.portal.texas.gov/">Texas Veterans Portal</a></li>
-                    <li><a href="http://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/" target="_blank">Equal Opportunity</a></li>
-                    <li class="last"><a href="http://agrilife.org/required-links/orpi/">Open Records/Public Information</a></li>
-                </ul>
-            </div>';
-
-        echo $output;
-
-    }
+    return $output;
+}
 
 }

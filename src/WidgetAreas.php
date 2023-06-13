@@ -10,7 +10,7 @@ namespace AgriLife\Extension;
 class WidgetAreas {
 
     /**
-     * Constructor.
+     * Initialize the class
      *
      * @since 1.0
      */
