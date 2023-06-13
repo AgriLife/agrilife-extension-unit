@@ -4,6 +4,7 @@ namespace AgriLife\Extension;
 
 class Templates {
 
+    // Add custom page template
     public function __construct() {
 
         add_filter( 'single_template', array( $this, 'get_single_template' ) );

@@ -22,11 +22,12 @@
 
 <?php
 
+// Path: functions.php
 function agriflex_display_programs( $chunk ) {
 
+    // Start output buffering
     ob_start();
     foreach ( $chunk as $program ) : ?>
-
 
         <div class="single-program">
             <a href="<?php echo $program['program_page']; ?>">

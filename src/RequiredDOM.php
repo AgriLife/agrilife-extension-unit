@@ -240,14 +240,13 @@ class RequiredDOM {
 	 */
 	public function render_footer_widgets() {
 
+        // If the 'footer-center' sidebar has active widgets display them
         if ( is_active_sidebar( 'footer-center' ) ) : ?>
-            <div id="footer-center-widgets" class="footer-center widget-area" role="complementary">
-                <?php dynamic_sidebar( 'footer-center' ); ?>
-            </div><!-- #footer-center-widgets -->
+        <div id="footer-center-widgets" class="footer-center widget-area" role="complementary">
+            <?php dynamic_sidebar( 'footer-center' ); ?>
+         </div><!-- #footer-center-widgets -->
         <?php endif;
-
 	}
-
 
     /**
      * Render TAMUS logo

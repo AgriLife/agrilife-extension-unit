@@ -10,8 +10,10 @@
  * License: GPL2+
  */
 
+ // Require Composer autoloader
 require 'vendor/autoload.php';
 
+// Define plugin constants
 define( 'AG_EXTUNIT_DIRNAME', 'agrilife-extension-unit' );
 define( 'AG_EXTUNIT_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'AG_EXTUNIT_DIR_FILE', __FILE__ );
@@ -36,6 +38,7 @@ $extension_templates = new \AgriLife\Extension\Templates();
 
 $extension_widget_areas = new \AgriLife\Extension\WidgetAreas();
 
+// Add custom page template
 add_action( 'agrilife_core_init', function() {
     $ext_landing_1_template = new \AgriLife\Core\PageTemplate();
     $ext_landing_1_template->with_path( AG_EXTUNIT_TEMPLATE_PATH )->with_file( 'landing1' )->with_name( 'Landing Page 1' );
