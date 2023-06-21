@@ -7,6 +7,7 @@
  */
 ?>
 <div class="welcome">
+
 	<?php if ( '' != get_field( 'page_title' ) ) : ?>
         <h2 class="page-title"><?php echo the_field('page_title') ?></h2>
     <?php endif; ?>

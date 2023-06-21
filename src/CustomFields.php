@@ -8,11 +8,11 @@ class CustomFields {
 
         // Load ACF fields
         if ( class_exists( 'Acf' ) ) {
-            require_once( AG_EXTUNIT_DIR_PATH . 'fields/landing1-details.php' );
+            require_once(AG_EXTUNIT_DIR_PATH . 'fields/landing1-details.php');
         }
 
         // Add ACF fields to Flexible Columns field group
-        add_filter( 'acf/load_field/key=field_57d2d8238a3ef', array( $this, 'aer_acf_load_extras' ) );
+        add_filter('acf/load_field/key=field_57d2d8238a3ef', array( $this, 'aer_acf_load_extras' ) );
     }
 
     /**
@@ -20,12 +20,13 @@ class CustomFields {
      * @param  array $field The target field group
      * @return array        The target field group
      */
-    public function aer_acf_load_extras( $field ) {
+    public function aer_acf_load_extras($field) {
 
         // Prevent this filter from running while editing exportable ACF field group data
-        $screen = get_current_screen();
-        if ( ! is_null( $screen ) && $screen->post_type === 'acf-field-group' ) {
-            return $field;
+        if(function_exists('get_current_screen')){
+            $screen = get_current_screen();
+            if(!is_null($screen) && $screen->post_type == 'acf-field-group')
+                return $field;
         }
 
         // Only change if on page edit screen
