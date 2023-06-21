@@ -53,22 +53,21 @@ function extension_home_content()
         <section id="content" role="main">
             <?php
             if ( get_field( 'welcome_text' ) ) {
-                load_template( dirname( __FILE__ ) . '/landing1-welcome.php'); // Load the landing1-welcome.php template if welcome_text field exists
+                load_template( dirname( __FILE__ ) . '/landing1-welcome.php');
             }
             ?>
 
         </section><!-- /end #content -->
     </div>
-    <?php
+<?php
 }
 
-/**
- * Check if program units exist, load the landing1-programs.php file if true 
- */
-function extension_home_programs() {
-    if ( get_field( 'program_units' ) ) { // Check if program units exist
-        load_template( dirname( __FILE__ ) . '/landing1-programs.php'); // Load the landing1-programs.php file
-    }
+function extension_home_programs()
+{
+        if ( get_field( 'program_units' ) ) {
+            load_template( dirname( __FILE__ ) . '/landing1-programs.php');
+        }
 }
+
 
 genesis();
