@@ -39,17 +39,17 @@ class Asset {
      * @since 1.0
      * @return void
      */
-    public function register_extunit_styles() {
+	public function register_extunit_styles() {
 
-        wp_register_style(
-            'extension-styles',
-            AF_THEME_DIRURL . '/css/ext-unit.css',
-            array(),
-            filemtime( AF_THEME_DIRPATH . '/css/ext-unit.css' ),
-            'screen'
-        );
+		wp_register_style(
+			'extension-styles',
+			AF_THEME_DIRURL . '/css/ext-unit.css',
+			array(),
+			'',
+			'screen'
+		);
 
-    }
+	}
 
     /**
      * Enqueues extension styles

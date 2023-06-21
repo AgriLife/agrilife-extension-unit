@@ -29,6 +29,7 @@ function agriflex_display_programs( $chunk ) {
     ob_start();
     foreach ( $chunk as $program ) : ?>
 
+
         <div class="single-program">
             <a href="<?php echo $program['program_page']; ?>">
                 <?php	$image = $program['program_image']; ?>

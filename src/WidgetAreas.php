@@ -2,28 +2,24 @@
 
 namespace AgriLife\Extension;
 
-/**
- * WidgetAreas class.
- *
- * @since 1.0
- */
 class WidgetAreas {
 
-    /**
-     * Initialize the class
-     *
-     * @since 1.0
-     */
     public function __construct() {
+
         add_filter( 'genesis_setup', array( $this, 'register_widget_areas' ), 11 );
+
     }
+
 
     /**
      * Register Extension Widget Areas
      *
      * @since 1.0
+     *
+     * @uses genesis_register_widget_area() Register widget areas.
      */
     public function register_widget_areas() {
+
         genesis_register_widget_area(
             array(
                 'id'               => 'footer-center',
@@ -41,5 +37,8 @@ class WidgetAreas {
                 '_genesis_builtin' => false,
             )
         );
+
     }
+
+
 }
