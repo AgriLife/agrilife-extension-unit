@@ -43,7 +43,7 @@ class Asset {
 
 		wp_register_style(
 			'extension-styles',
-			AF_THEME_DIRURL . '/css/ext-unit.css',
+			AF_THEME_DIRURL . '/css/src/ext-unit.scss',
 			array(),
 			'',
 			'screen'
